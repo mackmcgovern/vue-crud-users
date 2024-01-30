@@ -27,10 +27,12 @@
     <p v-if="!formIsValid" class="error">
       Please fill out the required fields before submitting.
     </p>
-    <base-button>Update User</base-button>
-    <base-button mode="delete" type="button" @click="deleteUser"
-      >Delete User</base-button
-    >
+    <div class="btn-container">
+      <base-button>Update User</base-button>
+      <base-button mode="delete" type="button" @click="deleteUser"
+        >Delete User</base-button
+      >
+    </div>
   </form>
 </template>
 
@@ -73,9 +75,7 @@ export default {
         email: this.email,
         firstName: this.firstName,
         lastName: this.lastName,
-        avatar:
-          this.avatar.value ||
-          'https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg',
+        avatar: this.avatar,
       }
 
       this.$store.dispatch('updateUser', formData)
@@ -107,5 +107,13 @@ input {
 
 p.error {
   color: var(--accent-color);
+}
+
+@media only screen and (max-width: 800px) {
+  .btn-container {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
 }
 </style>

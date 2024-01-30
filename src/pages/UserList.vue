@@ -30,14 +30,11 @@ export default {
   },
   data() {
     return {
-      selectedFilter: '',
+      selectedFilter: 'all',
       filterInput: '',
     }
   },
   computed: {
-    // users() {
-    //   return this.$store.getters['users']
-    // },
     filteredUsers() {
       const users = this.$store.getters['users']
       if (this.selectedFilter === 'first_name' && this.filterInput.length) {
@@ -54,6 +51,19 @@ export default {
         return users.filter(user =>
           user.email.toLowerCase().startsWith(this.filterInput)
         )
+      }
+      if (this.selectedFilter === 'all' && this.filterInput.length) {
+        return users.filter(user => {
+          if (user.first_name.toLowerCase().startsWith(this.filterInput)) {
+            return true
+          }
+          if (user.last_name.toLowerCase().startsWith(this.filterInput)) {
+            return true
+          }
+          if (user.last_name.toLowerCase().startsWith(this.filterInput)) {
+            return true
+          }
+        })
       }
 
       return users
@@ -80,6 +90,6 @@ export default {
 ul {
   display: flex;
   flex-direction: column;
-  row-gap: 8px;
+  row-gap: 10px;
 }
 </style>

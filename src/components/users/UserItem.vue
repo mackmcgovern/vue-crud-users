@@ -59,7 +59,7 @@ export default {
 <style scoped>
 li {
   list-style: none;
-  border: 1px solid #d4d4d4;
+  border: 1px solid #c5c4c4;
   padding: 1rem;
 
   border-radius: 2px;
@@ -95,10 +95,16 @@ h3 {
 }
 
 .btn-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
   row-gap: 8px;
   margin-left: auto;
+}
+
+@media only screen and (max-width: 800px) {
+  .user-info {
+    flex-direction: column;
+  }
+  .btn-container {
+    margin-top: 1rem;
+  }
 }
 </style>

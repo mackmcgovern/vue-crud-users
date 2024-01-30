@@ -11,6 +11,15 @@ const store = createStore({
       state.users = payload
       console.log(state.users)
     },
+    updateUsers(state, payload) {
+      state.users = state.users.map(user => {
+        if (user.id === payload.id) {
+          return {
+            ...payload,
+          }
+        } else return user
+      })
+    },
   },
   actions: {
     async fetchUsers(context) {
@@ -22,12 +31,12 @@ const store = createStore({
         throw error
       }
       const users = [...resData.data]
-      console.log(users, 'USERS')
 
       context.commit('setUsers', users)
     },
     async updateUser(context, payload) {
       const updatedUser = {
+        id: payload.id,
         email: payload.email,
         first_name: payload.firstName,
         last_name: payload.lastName,
@@ -62,6 +71,8 @@ const store = createStore({
         const error = new Error('Something went wrong')
         throw error
       }
+
+      context.commit('updateUsers', updatedUser)
     },
     async deleteUser(context, payload) {
       const res = await fetch(`https://reqres.in/api/users/${payload.id}`, {

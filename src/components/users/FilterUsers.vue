@@ -2,9 +2,9 @@
   <form @submit.prevent="searchUsers">
     <select v-model="selected" @change="searchUsers">
       <option value="all">View All Users</option>
-      <option value="first_name">First Name</option>
-      <option value="last_name">Last Name</option>
-      <option value="email">Email</option>
+      <option value="first_name">Filter by First Name</option>
+      <option value="last_name">Filter by Last Name</option>
+      <option value="email">Filter by Email</option>
     </select>
     <div>
       <input
@@ -24,7 +24,7 @@ export default {
   emits: ['filter-users'],
   data() {
     return {
-      selected: '',
+      selected: 'all',
       filterInput: '',
     }
   },
