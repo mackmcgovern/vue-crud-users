@@ -80,7 +80,6 @@ export default {
 
       this.$store.dispatch('updateUser', formData)
       this.$emit('closeForm')
-      this.$store.dispatch('fetchUsers')
     },
     deleteUser() {
       this.$store.dispatch('deleteUser', { id: this.id })

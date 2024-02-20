@@ -61,7 +61,7 @@ li {
   list-style: none;
   border: 1px solid #c5c4c4;
   padding: 1rem;
-
+  /* width: 100%; */
   border-radius: 2px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
@@ -75,6 +75,9 @@ li {
 
 img {
   border-radius: 50%;
+  max-width: 128px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
 }
 
 h2,
@@ -102,9 +105,20 @@ h3 {
 @media only screen and (max-width: 800px) {
   .user-info {
     flex-direction: column;
+    padding: 1rem 0;
+    row-gap: 10px;
+    justify-content: flex-end;
   }
   .btn-container {
     margin-top: 1rem;
+  }
+  h2,
+  h3 {
+    text-align: center;
+  }
+  .btn-container {
+    margin-left: 0;
+    margin: 10px auto 0 auto;
   }
 }
 </style>

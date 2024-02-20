@@ -6,15 +6,13 @@
       <option value="last_name">Filter by Last Name</option>
       <option value="email">Filter by Email</option>
     </select>
-    <div>
-      <input
-        type="text"
-        name="search"
-        id="search"
-        placeholder="search..."
-        v-model.trim="filterInput"
-        @input="searchUsers" />
-    </div>
+    <input
+      type="text"
+      name="search"
+      id="search"
+      placeholder="search..."
+      v-model.trim="filterInput"
+      @input="searchUsers" />
     <base-button mode="light">Search Users</base-button>
   </form>
 </template>
@@ -48,11 +46,27 @@ form {
 }
 
 input {
-  width: 20rem;
+  width: 22rem;
   height: 40px;
 }
 
 select {
   height: 40px;
+  padding: 0 10px;
+}
+
+@media only screen and (max-width: 800px) {
+  form {
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  select {
+    height: 40px;
+    width: 100%;
+  }
+
+  input {
+    width: 100%;
+  }
 }
 </style>

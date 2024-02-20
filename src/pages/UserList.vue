@@ -3,7 +3,7 @@
     <filter-users @filter-users="filterUsers"></filter-users>
   </base-card>
   <base-card>
-    <h2>UserList</h2>
+    <h2>Users</h2>
     <ul>
       <user-item
         v-for="user in filteredUsers"
@@ -91,5 +91,12 @@ ul {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
+  padding: 0;
+}
+h2 {
+  text-align: center;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  font-size: 2rem;
 }
 </style>
